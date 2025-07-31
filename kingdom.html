@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 Kingdom of Love - Queen Raouia 👑</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Dancing+Script:wght@400;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --royal-gold: #FFD700;
+            --rose-gold: #E8B4B8;
+            --soft-pink: #F8B5D3;
+            --cute-pink: #FFB6C1;
+            --deep-purple: #4A148C;
+            --royal-purple: #6A0DAD;
+            --white: #FFFFFF;
+            --cream: #FFF8E7;
+            --black: #1A1A1A;
+            --gradient-royal: linear-gradient(135deg, var(--royal-gold), var(--rose-gold), var(--deep-purple));
+            --gradient-crown: linear-gradient(45deg, var(--royal-gold), #FFA500, var(--cute-pink));
+            --gradient-pink: linear-gradient(45deg, var(--cute-pink), var(--soft-pink), var(--rose-gold));
+            --shadow-royal: 0 10px 30px rgba(255, 215, 0, 0.3);
+            --shadow-pink: 0 10px 30px rgba(255, 182, 193, 0.3);
+            --shadow-soft: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 15px;
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: var(--gradient-royal);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-royal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 1s ease-out;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .crown-loading {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: crownFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .loading-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .loading-subtext {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Main Container */
+        .main-container {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .main-container.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header Section */
+        .header-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="royal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(212,175,55,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23royal)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .crown-animation {
+            font-size: 6rem;
+            margin-bottom: 30px;
+            animation: crownAppear 2s ease-out;
+            background: var(--gradient-crown);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.5));
+        }
+
+        @keyframes crownAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-100px);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2) translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .royal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: titleReveal 1.5s ease-out 0.5s both;
+        }
+
+        @keyframes titleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .royal-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--cream);
+            margin-bottom: 40px;
+            animation: subtitleReveal 1.5s ease-out 1s both;
+        }
+
+        @keyframes subtitleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 1.5rem;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 40px;
+            background: var(--cream);
+            margin: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            color: var(--royal-gold);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--deep-purple);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--rose-gold);
+        }
+
+        /* Her Majesty's Name Section */
+        .queen-name {
+            text-align: center;
+            padding: 40px;
+            background: var(--gradient-crown);
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            box-shadow: var(--shadow-royal);
+        }
+
+        .queen-name-text {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Royal Decrees Section */
+        .decrees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .decree-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            border-left: 5px solid var(--royal-gold);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .decree-card:hover {
+            border-color: var(--cute-pink);
+            box-shadow: var(--shadow-pink);
+        }
+
+        .decree-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .decree-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .decree-card:hover::before {
+            left: 100%;
+        }
+
+        .decree-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--royal-gold);
+            margin-bottom: 15px;
+        }
+
+        .decree-text {
+            font-size: 1.1rem;
+            color: var(--black);
+            line-height: 1.8;
+        }
+
+        /* Royal Memories Section */
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .memory-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-pink);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+            color: var(--white);
+        }
+
+        .memory-card:hover::before {
+            opacity: 1;
+        }
+
+        .memory-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--royal-gold);
+        }
+
+        .memory-card:hover .memory-icon {
+            color: var(--white);
+        }
+
+        .memory-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--deep-purple);
+        }
+
+        .memory-card:hover .memory-title {
+            color: var(--white);
+        }
+
+        .memory-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .memory-card:hover .memory-description {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        /* Royal Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+            background: var(--white);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow-pink);
+        }
+
+        .gallery-image {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 182, 193, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay .gallery-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-overlay .gallery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-pink);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-pink);
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-pink);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-pink);
+        }
+
+        .lightbox-nav:hover {
+            transform: scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+        }
+
+        /* Final Love Message */
+        .love-message {
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--gradient-royal);
+            border-radius: var(--border-radius);
+            margin: 40px 0;
+            box-shadow: var(--shadow-royal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.1)">💖</text></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .love-message-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .love-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .love-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .claim-throne-btn {
+            background: var(--gradient-pink);
+            color: var(--white);
+            border: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-pink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .claim-throne-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .claim-throne-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.5);
+        }
+
+        .claim-throne-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Throne Image Styling */
+        .throne-image-container {
+            margin: 30px 0;
+            text-align: center;
+            animation: throneReveal 1.5s ease-out;
+        }
+
+        .throne-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+            border: 3px solid var(--royal-gold);
+            animation: throneGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes throneReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes throneGlow {
+            0% {
+                box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+            }
+            100% {
+                box-shadow: 0 25px 80px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: var(--shadow-soft);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            transition: var(--transition);
+        }
+
+        .music-player:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .music-btn {
+            background: var(--gradient-pink);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 182, 193, 0.5);
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+        }
+
+        .music-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--deep-purple);
+            text-align: center;
+        }
+
+        .music-status {
+            font-size: 0.7rem;
+            color: var(--black);
+            opacity: 0.7;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-crown {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 215, 0, 0.4);
+            animation: floatCrown 8s ease-in-out infinite;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 182, 193, 0.5);
+            animation: floatHeart 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCrown {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-30px) rotate(10deg) scale(1.1); }
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.2); }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--cute-pink);
+            animation: confettiFall 4s linear infinite;
+            z-index: 999;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .royal-title {
+                font-size: 2.5rem;
+            }
+
+            .royal-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .crown-animation {
+                font-size: 4rem;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+                margin: 10px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .queen-name-text {
+                font-size: 2rem;
+            }
+
+            .decrees-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .memories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-image {
+                height: 250px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .love-title {
+                font-size: 2rem;
+            }
+
+            .love-text {
+                font-size: 1.2rem;
+            }
+
+            .music-player {
+                top: 20px;
+                right: 20px;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .music-controls {
+                gap: 8px;
+            }
+
+            .music-btn {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 20px 10px;
+            }
+
+            .royal-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+            }
+
+            .queen-name {
+                padding: 20px;
+            }
+
+            .queen-name-text {
+                font-size: 1.5rem;
+            }
+
+            .decree-card {
+                padding: 20px;
+            }
+
+            .memory-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="crown-loading">👑</div>
+            <div class="loading-text">Preparing Your Kingdom...</div>
+            <div class="loading-subtext">Your Majesty</div>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-info">
+            <div class="music-title">Majestic</div>
+            <div class="music-status" id="musicStatus">Loading...</div>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="playPauseBtn" onclick="togglePlayPause()">
+                <i class="fas fa-play" id="playPauseIcon"></i>
+            </button>
+            <button class="music-btn" id="repeatBtn" onclick="toggleRepeat()">
+                <i class="fas fa-redo" id="repeatIcon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container" id="mainContainer">
+        <!-- Header Section -->
+        <section class="header-section">
+            <div class="header-bg"></div>
+            <div class="crown-animation">👑</div>
+            <h1 class="royal-title">Kingdom of Love</h1>
+            <p class="royal-subtitle">On this day, the Queen was born...</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Her Majesty's Name Section -->
+        <section class="content-section" id="queenSection">
+            <div class="section-header">
+                <div class="section-icon">👑</div>
+                <h2 class="section-title">Her Majesty's Name</h2>
+                <p class="section-subtitle">The Ruler of My Heart</p>
+            </div>
+            <div class="queen-name">
+                <div class="queen-name-text">Queen Raouia</div>
+            </div>
+        </section>
+
+        <!-- Royal Decrees Section -->
+        <section class="content-section" id="decreesSection">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2 class="section-title">Royal Decrees</h2>
+                <p class="section-subtitle">My Sacred Promises to You</p>
+            </div>
+            <div class="decrees-grid">
+                <div class="decree-card">
+                    <div class="decree-number">I</div>
+                    <div class="decree-text">I shall love you with all my heart, today and every day that follows, for you are the queen of my soul.</div>
+                </div>
+                <div class="decree-card">
+                    <div class="decree-number">II</div>
+                    <div class="decree-text">I promise to cherish every moment with you, to hold your hand through life's journey, and to be your strength when you need it most.</div>
+                </div>
+                <div class="decree-card">
+                    <div class="decree-number">III</div>
+                    <div class="decree-text">I vow to protect your happiness, to make you smile every day, and to be the man who deserves your love.</div>
+                </div>
+                <div class="decree-card">
+                    <div class="decree-number">IV</div>
+                    <div class="decree-text">I declare that you are my everything, my forever, my always. My heart beats only for you, my queen.</div>
+                </div>
+                <div class="decree-card">
+                    <div class="decree-number">V</div>
+                    <div class="decree-text">I promise to build a kingdom of love with you, where every day feels like the first day of August - magical and full of love.</div>
+                </div>
+                <div class="decree-card">
+                    <div class="decree-number">VI</div>
+                    <div class="decree-text">I swear to be faithful, honest, and true, to honor you as the queen you are, and to love you more with each passing day.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Royal Memories Section -->
+        <section class="content-section" id="memoriesSection">
+            <div class="section-header">
+                <div class="section-icon">💎</div>
+                <h2 class="section-title">Royal Memories</h2>
+                <p class="section-subtitle">Precious Moments of Our Love</p>
+            </div>
+            <div class="memories-grid">
+                <div class="memory-card">
+                    <div class="memory-icon">🏛️</div>
+                    <div class="memory-title">Marrakesh</div>
+                    <div class="memory-description">Where we met for the first time, after our beautiful long-distance love story.</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">💕</div>
+                    <div class="memory-title">First Kiss</div>
+                    <div class="memory-description">The moment that changed everything, when our souls became one.</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🎬</div>
+                    <div class="memory-title">Cinema Time</div>
+                    <div class="memory-description">Sharing magical moments in the darkness, lost in stories and each other.</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🤝</div>
+                    <div class="memory-title">Walk Together</div>
+                    <div class="memory-description">Hand in hand, exploring the world together, step by step.</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🌹</div>
+                    <div class="memory-title">Flower Gardens</div>
+                    <div class="memory-description">Walking through beauty, but nothing as beautiful as your smile.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Royal Gallery Section -->
+        <section class="content-section" id="gallerySection">
+            <div class="section-header">
+                <div class="section-icon">👑</div>
+                <h2 class="section-title">Her Majesty's Gallery</h2>
+                <p class="section-subtitle">The Queen in All Her Beauty</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <div class="gallery-image">
+                        <img src="images/image1.jpg" alt="Queen Raouia - Radiant Smile" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">👑</div>
+                            <div class="gallery-title">Radiant Smile</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <div class="gallery-image">
+                        <img src="images/image2.jpg" alt="Queen Raouia - Garden Princess" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🌸</div>
+                            <div class="gallery-title">Garden Princess</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <div class="gallery-image">
+                        <img src="images/image3.jpg" alt="Queen Raouia - Pink Elegance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">💕</div>
+                            <div class="gallery-title">Pink Elegance</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <div class="gallery-image">
+                        <img src="images/image4.jpg" alt="Queen Raouia - Royal Grace" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">✨</div>
+                            <div class="gallery-title">Royal Grace</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <div class="gallery-image">
+                        <img src="images/image5.jpg" alt="Queen Raouia - Golden Love" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">💛</div>
+                            <div class="gallery-title">Golden Love</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <div class="gallery-image">
+                        <img src="images/image6.jpg" alt="Queen Raouia - Black & White Romance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🖤</div>
+                            <div class="gallery-title">Black & White Romance</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <div class="gallery-image">
+                        <img src="images/image7.jpg" alt="Queen Raouia - Dining Royalty" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🍽️</div>
+                            <div class="gallery-title">Dining Royalty</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <div class="gallery-image">
+                        <img src="images/image8.jpg" alt="Queen Raouia - Nature's Queen" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🌿</div>
+                            <div class="gallery-title">Nature's Queen</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(8)">
+                    <div class="gallery-image">
+                        <img src="images/image9.jpg" alt="Queen Raouia - Plaid Romance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">💝</div>
+                            <div class="gallery-title">Plaid Romance</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(9)">
+                    <div class="gallery-image">
+                        <img src="images/IMG-20240512-WA0011.jpg" alt="Queen Raouia - Mirror Reflection" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">💎</div>
+                            <div class="gallery-title">Mirror Reflection</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(10)">
+                    <div class="gallery-image">
+                        <img src="images/IMG-20240512-WA0012.jpg" alt="Queen Raouia - Vibrant Beauty" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🌺</div>
+                            <div class="gallery-title">Vibrant Beauty</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(11)">
+                    <div class="gallery-image">
+                        <img src="images/IMG-20240512-WA0013.jpg" alt="Queen Raouia - Seaside Elegance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🌊</div>
+                            <div class="gallery-title">Seaside Elegance</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(12)">
+                    <div class="gallery-image">
+                        <img src="images/IMG-20240512-WA0014.jpg" alt="Queen Raouia - Monumental Beauty" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">🏛️</div>
+                            <div class="gallery-title">Monumental Beauty</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(13)">
+                    <div class="gallery-image">
+                        <img src="images/IMG-20240512-WA0015.jpg" alt="Queen Raouia - Royal Portrait" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">✨</div>
+                            <div class="gallery-title">Royal Portrait</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(14)">
+                    <div class="gallery-image">
+                        <img src="images/IMG-20240512-WA0016.jpg" alt="Queen Raouia - Elegant Portrait" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">💖</div>
+                            <div class="gallery-title">Elegant Portrait</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Final Love Message -->
+        <section class="content-section" id="loveMessageSection">
+            <div class="love-message">
+                <div class="love-message-content">
+                    <h2 class="love-title">To My Queen</h2>
+                    <p class="love-text">
+                        You rule my heart, today and every day.<br>
+                        Your love is the crown that adorns my soul.<br>
+                        Happy 1st of August, my beautiful Raouia.<br>
+                        You are the queen of my kingdom, the ruler of my love.
+                    </p>
+                    <button class="claim-throne-btn" onclick="claimThrone()">
+                        👑 Claim Your Throne 👑
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">‹</button>
+            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">›</button>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="backgroundMusic" preload="auto">
+        <source src="song/Majestic.mp3" type="audio/mpeg">
+        <source src="song/Majestic.ogg" type="audio/ogg">
+        <source src="song/Majestic.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Game State
+        let musicPlaying = false;
+        let isRepeating = false;
+
+        // Audio elements
+        const audio = document.getElementById('backgroundMusic');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const repeatBtn = document.getElementById('repeatBtn');
+        const repeatIcon = document.getElementById('repeatIcon');
+        const musicStatus = document.getElementById('musicStatus');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    document.getElementById('mainContainer').classList.add('loaded');
+                    createFloatingElements();
+                    initializeMusic();
+                    initializeScrollAnimations();
+                }, 1000);
+            }, 3000);
+        });
+
+        // Initialize music
+        function initializeMusic() {
+            audio.volume = 0.5;
+            
+            audio.addEventListener('loadeddata', function() {
+                musicStatus.textContent = 'Ready to play';
+                setTimeout(() => {
+                    playMusic();
+                }, 500);
+            });
+
+            audio.addEventListener('play', function() {
+                musicPlaying = true;
+                playPauseIcon.className = 'fas fa-pause';
+                musicStatus.textContent = 'Playing';
+            });
+
+            audio.addEventListener('pause', function() {
+                musicPlaying = false;
+                playPauseIcon.className = 'fas fa-play';
+                musicStatus.textContent = 'Paused';
+            });
+
+            audio.addEventListener('ended', function() {
+                if (isRepeating) {
+                    audio.currentTime = 0;
+                    audio.play();
+                } else {
+                    musicPlaying = false;
+                    playPauseIcon.className = 'fas fa-play';
+                    musicStatus.textContent = 'Ended';
+                }
+            });
+
+            audio.addEventListener('error', function() {
+                musicStatus.textContent = 'Error loading music';
+            });
+        }
+
+        // Music control functions
+        function togglePlayPause() {
+            if (musicPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        }
+
+        function playMusic() {
+            audio.play().catch(function(error) {
+                console.log('Playback failed:', error);
+                musicStatus.textContent = 'Click to enable audio';
+                document.addEventListener('click', function enableAudio() {
+                    audio.play().then(() => {
+                        musicStatus.textContent = 'Playing';
+                    }).catch(() => {
+                        musicStatus.textContent = 'Audio disabled';
+                    });
+                    document.removeEventListener('click', enableAudio);
+                }, { once: true });
+            });
+        }
+
+        function pauseMusic() {
+            audio.pause();
+        }
+
+        function toggleRepeat() {
+            isRepeating = !isRepeating;
+            if (isRepeating) {
+                repeatIcon.style.color = 'var(--cute-pink)';
+                musicStatus.textContent = musicPlaying ? 'Playing (Loop)' : 'Paused (Loop)';
+            } else {
+                repeatIcon.style.color = 'var(--white)';
+                musicStatus.textContent = musicPlaying ? 'Playing' : 'Paused';
+            }
+        }
+
+        // Create floating background elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const crownSymbols = ['👑', '💎', '⭐'];
+            const heartSymbols = ['💖', '💕', '💗', '💓', '💝'];
+            
+            // Create crowns
+            for (let i = 0; i < 15; i++) {
+                const crown = document.createElement('div');
+                crown.className = 'floating-crown';
+                crown.textContent = crownSymbols[Math.floor(Math.random() * crownSymbols.length)];
+                crown.style.left = Math.random() * 100 + '%';
+                crown.style.animationDelay = Math.random() * 8 + 's';
+                crown.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(crown);
+            }
+            
+            // Create hearts
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize scroll animations
+        function initializeScrollAnimations() {
+            const sections = document.querySelectorAll('.content-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Claim throne function
+        function claimThrone() {
+            createConfetti();
+            playCelebrationSound();
+            
+            // Show a special message that stays until page refresh
+            const loveMessage = document.querySelector('.love-message-content');
+            
+            loveMessage.innerHTML = `
+                <h2 class="love-title">🎉 Throne Claimed! 🎉</h2>
+                <div class="throne-image-container">
+                    <img src="images/Throne-Image.png" alt="Queen Raquia on Her Throne" class="throne-image">
+                </div>
+                <p class="love-text">
+                    Congratulations, my queen!<br>
+                    You have successfully claimed your throne in my heart.<br>
+                    You are now the eternal ruler of my love kingdom.<br>
+                    Long live Queen Raquia! 👑
+                </p>
+                <p class="love-text" style="font-size: 1.2rem; margin-top: 20px;">
+                    With all my love,<br>
+                    Your devoted servant,<br>
+                    Yassine 💖
+                </p>
+            `;
+            
+            // The throne image and message will stay permanently until page refresh
+        }
+
+        // Gallery and Lightbox functionality
+        let currentImageIndex = 0;
+        const galleryImages = [
+            { src: 'images/image1.jpg', title: 'Radiant Smile', icon: '👑' },
+            { src: 'images/image2.jpg', title: 'Garden Princess', icon: '🌸' },
+            { src: 'images/image3.jpg', title: 'Pink Elegance', icon: '💕' },
+            { src: 'images/image4.jpg', title: 'Royal Grace', icon: '✨' },
+            { src: 'images/image5.jpg', title: 'Golden Love', icon: '💛' },
+            { src: 'images/image6.jpg', title: 'Black & White Romance', icon: '🖤' },
+            { src: 'images/image7.jpg', title: 'Dining Royalty', icon: '🍽️' },
+            { src: 'images/image8.jpg', title: 'Nature\'s Queen', icon: '🌿' },
+            { src: 'images/image9.jpg', title: 'Plaid Romance', icon: '💝' },
+            { src: 'images/IMG-20240512-WA0011.jpg', title: 'Mirror Reflection', icon: '💎' },
+            { src: 'images/IMG-20240512-WA0012.jpg', title: 'Vibrant Beauty', icon: '🌺' },
+            { src: 'images/IMG-20240512-WA0013.jpg', title: 'Seaside Elegance', icon: '🌊' },
+            { src: 'images/IMG-20240512-WA0014.jpg', title: 'Monumental Beauty', icon: '🏛️' },
+            { src: 'images/IMG-20240512-WA0015.jpg', title: 'Royal Portrait', icon: '✨' },
+            { src: 'images/IMG-20240512-WA0016.jpg', title: 'Elegant Portrait', icon: '💖' }
+        ];
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            
+            lightboxImage.src = galleryImages[index].src;
+            lightboxCaption.innerHTML = `${galleryImages[index].icon} ${galleryImages[index].title}`;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxCaption.innerHTML = `${galleryImages[currentImageIndex].icon} ${galleryImages[currentImageIndex].title}`;
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            } else if (event.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+
+        // Create confetti animation
+        function createConfetti() {
+            const colors = ['#FFD700', '#FFB6C1', '#F8B5D3', '#E8B4B8', '#4A148C'];
+            const symbols = ['👑', '💎', '⭐', '💖', '💕', '💗'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                
+                if (Math.random() > 0.7) {
+                    confetti.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    confetti.style.fontSize = '1.5rem';
+                    confetti.style.background = 'transparent';
+                }
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 6000);
+            }
+        }
+
+        // Play celebration sound
+        function playCelebrationSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const frequencies = [523, 659, 784, 1047, 1319, 1568, 2093]; // C major scale up
+            
+            frequencies.forEach((freq, index) => {
+                setTimeout(() => {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(freq, audioContext.currentTime);
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.2);
+                }, index * 100);
+            });
+        }
+    </script>
+</body>
+</html> 
